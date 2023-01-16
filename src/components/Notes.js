@@ -2,13 +2,22 @@ import React, {useContext, useEffect, useState, useRef} from 'react';
 import NoteContext from "../context/notes/NoteContext";
 import Noteitem from './Noteitem';
 import Addnotes from './Addnotes';
+import { useHistory } from 'react-router-dom';
 
 
 const Notes = () => {
     const context = useContext(NoteContext);
+    let history = useHistory();
     const {notes, getNotes} = context;
     useEffect(() => {
-     getNotes()
+      if (localStorage.getItem('token')){
+        getNotes()
+      }
+      else{
+        history.push("/login")
+
+      }
+     
      // eslint-disable-next-line
     }, [])
 
@@ -78,11 +87,11 @@ const Notes = () => {
 
 
 
-      <div className="container mt-4">
-       <h3>My Notes</h3>
-        <div className='row my-3'>
-          <div className="container m-2">
-          {notes.length===0 && 'No notes to display'}
+      <div className="container bg-dark">
+       <h3 className='text-light text-center mt-4'>My Notes</h3>
+        <div className='row'>
+          <div className="container my-2 text-light">
+            {notes.length===0 && 'No notes to display'}
           </div>
          
          {notes.map((notes)=>{

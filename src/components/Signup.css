@@ -1,0 +1,22 @@
+.form-label{
+    text-align: center;
+    font-size: 15px;
+    margin-left: 100px;
+    font-weight: bold;
+}
+
+.input-box{
+    border-radius: 10px;
+    width: 350px;
+    margin-left: -50px;
+}
+
+.user-icon{
+    position:fixed;
+    margin-left: -80px;
+}
+
+.password-icon{
+    position:fixed;
+    margin-left: -80px;
+}

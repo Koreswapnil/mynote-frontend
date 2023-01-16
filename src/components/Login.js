@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { useHistory } from 'react-router-dom'
+import './Login.css'
 
 const Login = () => {
     const [credentials, setCredentials]=useState({username:"", password:""})
@@ -29,20 +30,46 @@ const Login = () => {
         setCredentials({...credentials, [e.target.name]: e.target.value})
     }
   return (
-    <div className='container'>
+
+    <div className="row">
+        <div className="col-4 offset-4">
+        <div className='card'>
+        <h3 className='mt-5 text-primary text-center'>Login</h3>
+        <div className="card-body">
         <form onSubmit={handleSubmit}>
-           <div className="mb-3">
-             <label htmlFor="username" className="form-label">Email address</label>
-                <input type="email" className="form-control" id="username" name="username" value={credentials.username} onChange={onChange} aria-describedby="emailHelp"/>
-             <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+
+            <div className="row">
+               <div className="offset-2 col-6">
+                  <label htmlFor="username" className="form-label">Username</label>
+                  <div className="col-12">
+                     <i className="fa-regular fa-user user-icon"></i>
+                     <input type="email" className="form-control user-input" id="username" name="username" value={credentials.username} onChange={onChange} placeholder='Enter Your Email'/>
+                  </div>
+               </div>
            </div>
-            <div className="mb-3">
-                <label htmlFor="password" className="form-label">Password</label>
-                <input type="password" className="form-control" id="password" name="password" value={credentials.password} onChange={onChange}/>
+
+           <div className="row">
+               <div className="offset-2 col-6">
+                  <label htmlFor="username" className="form-label mt-3">Password</label>
+                  <div className="col-12">
+                      <i className="fa-solid fa-lock password-icon"></i>
+                      <input type="password" className="form-control password-input" id="password" name="password" value={credentials.password} onChange={onChange} placeholder='Enter Password'/>
+                  </div> 
+               </div>
+           </div>
+
+           <div className="row">
+            <div className="col-4 offset-4">
+             <button type="submit" className="btn btn-primary my-4 align-center">LOGIN</button>
             </div>
-            <button type="submit" className="btn btn-primary" >Submit</button>
+           </div>
         </form>
+        </div>
+       </div>
+       </div>
     </div>
+
+    
   )
 }
 

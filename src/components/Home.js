@@ -1,5 +1,5 @@
-import React, {useContext} from "react";
-import Addnotes from "./Addnotes";
+import React from "react";
+
 import Notes from "./Notes";
 
 const Home = () => {
